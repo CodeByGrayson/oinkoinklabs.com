@@ -112,27 +112,25 @@
   .features{padding:20px 0 90px;border-top:1px solid var(--navy-line);}
   .receipt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px;}
   .receipt{
-    background:var(--paper);color:var(--ink);border-radius:6px;
+    background:var(--navy-card);color:var(--text-soft);border-radius:10px;
     padding:24px 22px 20px;position:relative;
+    border:1px solid var(--navy-line);
     box-shadow:0 20px 40px -18px rgba(0,0,0,.5);
-    transform:rotate(var(--tilt,0deg));transition:transform .25s ease;
+    transition:transform .25s ease, border-color .25s ease;
   }
-  .receipt:nth-child(1){--tilt:-1deg;}
-  .receipt:nth-child(2){--tilt:0.5deg;}
-  .receipt:nth-child(3){--tilt:-0.3deg;}
-  .receipt:hover{transform:rotate(0deg) translateY(-6px);}
+  .receipt:hover{transform:translateY(-6px);border-color:var(--gold);}
   .receipt::after{
     content:"";position:absolute;left:0;right:0;bottom:-1px;height:12px;
-    background:radial-gradient(circle at 6px 6px, transparent 6px, var(--paper) 6.5px) repeat-x;
+    background:radial-gradient(circle at 6px 6px, transparent 6px, var(--navy-card) 6.5px) repeat-x;
     background-size:16px 12px;
   }
-  .receipt-title{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.04rem;margin-bottom:6px;}
-  .receipt-desc{font-size:.86rem;color:#3d4f6b;margin-bottom:16px;}
+  .receipt-title{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.04rem;margin-bottom:6px;color:#fff;}
+  .receipt-desc{font-size:.86rem;color:#8fa3c0;margin-bottom:16px;}
   .receipt-line{
     display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;
-    font-size:.76rem;border-top:1px dashed #c8bfa6;padding:6px 0;color:#5a4a2c;
+    font-size:.76rem;border-top:1px dashed var(--navy-line);padding:6px 0;color:var(--gold);
   }
-  .receipt-line:last-of-type{border-bottom:1px dashed #c8bfa6;}
+  .receipt-line:last-of-type{border-bottom:1px dashed var(--navy-line);}
 
   /* STUDIO / TRUST */
   .trust{padding:60px 0 90px;border-top:1px solid var(--navy-line);}
@@ -217,34 +215,6 @@
         <div class="show-phone"><img src="shot_settings_crop.png" alt="Settings screen showing local-only storage"></div>
         <div class="show-title">Nothing leaves your phone</div>
         <div class="show-desc">Group, category, backup and restore — all on-device, by design.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="features">
-    <div class="section-label">What it does</div>
-    <p class="section-sub">No accounts, no clutter — just fast, honest tracking of every dollar in and out.</p>
-    <div class="receipt-grid">
-      <div class="receipt">
-        <div class="receipt-title">Quick entry</div>
-        <div class="receipt-desc">Log an expense or income in seconds, right from your day.</div>
-        <div class="receipt-line"><span>COFFEE</span><span>-4.50</span></div>
-        <div class="receipt-line"><span>SALARY</span><span>+2,400.00</span></div>
-        <div class="receipt-line"><span>GROCERIES</span><span>-58.20</span></div>
-      </div>
-      <div class="receipt">
-        <div class="receipt-title">Visual insights</div>
-        <div class="receipt-desc">See spending by category, by month, and net flow over time.</div>
-        <div class="receipt-line"><span>FOOD</span><span>32%</span></div>
-        <div class="receipt-line"><span>TRANSPORT</span><span>18%</span></div>
-        <div class="receipt-line"><span>BILLS</span><span>27%</span></div>
-      </div>
-      <div class="receipt">
-        <div class="receipt-title">Stays private</div>
-        <div class="receipt-desc">Every entry is stored locally on your device — never on a server.</div>
-        <div class="receipt-line"><span>CLOUD SYNC</span><span>NONE</span></div>
-        <div class="receipt-line"><span>ACCOUNT</span><span>NONE</span></div>
-        <div class="receipt-line"><span>YOUR DATA</span><span>YOURS</span></div>
       </div>
     </div>
   </section>
