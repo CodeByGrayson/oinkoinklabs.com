@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help & Guides — OinkOink Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0E1B31;
+    --navy-card:#1E3A5F;
+    --navy-line:#2C4E77;
+    --gold:#E9C46A;
+    --gold-deep:#D4A94E;
+    --text-soft:#C9D6E8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--navy-deep);
+    color:var(--text-soft);
+    line-height:1.7;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 32px 80px;}
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:28px 0;margin-bottom:20px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;
+    text-decoration:none;
+  }
+  .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+  nav a.back{font-size:.88rem;color:var(--text-soft);text-decoration:none;}
+  nav a.back:hover{color:var(--gold);}
+
+  h1{
+    font-family:'Baloo 2',sans-serif;font-weight:800;color:#fff;
+    font-size:2.1rem;margin-bottom:8px;
+  }
+  .subtitle{color:#7d92b4;font-size:.95rem;margin-bottom:32px;}
+
+  /* JUMP LINK BAR */
+  .topics{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin-bottom:48px;
+  }
+  .topics a{
+    font-family:'Baloo 2',sans-serif;font-weight:600;font-size:.86rem;
+    color:var(--text-soft);text-decoration:none;
+    background:var(--navy-card);border:1px solid var(--navy-line);
+    padding:9px 16px;border-radius:20px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .topics a:hover{border-color:var(--gold);color:var(--gold);}
+
+  h2{
+    font-family:'Baloo 2',sans-serif;font-weight:700;color:var(--gold);
+    font-size:1.3rem;margin-top:50px;margin-bottom:14px;
+    scroll-margin-top:24px; /* keeps heading from hiding under browser chrome when jumped to */
+  }
+  h2:first-of-type{margin-top:0;}
+  p, li{color:var(--text-soft);font-size:.98rem;}
+  ul{margin:12px 0 12px 22px;}
+  li{margin-bottom:6px;}
+  a{color:var(--gold);}
+
+  /* EXAMPLE DIAGRAM BLOCK */
+  .example{
+    background:var(--navy-card);border:1px solid var(--navy-line);
+    border-radius:12px;padding:20px 22px;margin:20px 0;
+  }
+  .example-group{
+    font-family:'Baloo 2',sans-serif;font-weight:700;color:#fff;
+    font-size:1rem;margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .example-group::before{content:"📁";font-size:.9rem;}
+  .example-categories{margin-left:24px;display:flex;flex-direction:column;gap:6px;}
+  .example-cat{
+    font-family:'IBM Plex Mono',monospace;font-size:.84rem;color:var(--gold);
+    display:flex;align-items:center;gap:8px;
+  }
+  .example-cat::before{content:"—";color:var(--navy-line);}
+
+  footer{
+    border-top:1px solid var(--navy-line);
+    margin-top:60px;padding-top:24px;
+    font-size:.85rem;color:#5f7290;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html" class="brand"><span class="brand-dot"></span>OinkOink Labs</a>
+    <a href="index.html" class="back">← Back to home</a>
+  </nav>
+
+  <h1>Help & Guides</h1>
+  <p class="subtitle">Money Manager Expense Tracker · Quick answers to common questions</p>
+
+  <div class="topics">
+    <a href="#groups-vs-categories">Groups vs Categories</a>
+  </div>
+
+  <h2 id="groups-vs-categories">Groups vs Categories</h2>
+  <p>In Money Manager, every entry is organized on two levels: a <strong>Group</strong> and a <strong>Category</strong>.</p>
+
+  <p><strong>Group</strong> is the big-picture bucket — think of it as the "type" of spending. <strong>Category</strong> sits underneath a Group, and gets more specific about exactly what the entry was for.</p>
+
+  <p>Here's an example:</p>
+
+  <div class="example">
+    <div class="example-group">Bills <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(Group)</span></div>
+    <div class="example-categories">
+      <div class="example-cat">Utility <span style="color:#7d92b4;">(Category)</span></div>
+      <div class="example-cat">Internet <span style="color:#7d92b4;">(Category)</span></div>
+      <div class="example-cat">Mobile <span style="color:#7d92b4;">(Category)</span></div>
+    </div>
+  </div>
+
+  <p>So if you pay your electricity bill, you'd log it under Group: <strong>Bills</strong>, Category: <strong>Utility</strong>. Your phone plan would be Group: <strong>Bills</strong>, Category: <strong>Mobile</strong> — same Group, different Category.</p>
+
+  <p>This two-level structure keeps your Insights clean: you can zoom out and see "how much did Bills cost me this month?" or zoom in and see "how much specifically went to Internet?" — both from the same set of entries.</p>
+
+  <p><strong>A good rule of thumb:</strong> if you're not sure whether something should be a new Group or just a new Category, ask whether it's a different <em>type</em> of spending (→ new Group) or just a more specific <em>version</em> of spending you already track (→ new Category under an existing Group).</p>
+
+  <footer>© 2026 OinkOink Labs</footer>
+</div>
+</body>
+</html>
