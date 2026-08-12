@@ -107,6 +107,7 @@
   <div class="topics">
     <a href="#groups-vs-categories">Groups vs Categories</a>
     <a href="#budgets">Budgets</a>
+    <a href="#importing-data">Importing from Another App</a>
   </div>
 
   <h2 id="groups-vs-categories">Groups vs Categories</h2>
@@ -139,6 +140,80 @@
   <p>As you log expenses under a budgeted category, the app automatically compares your actual spending against the limit you set — so you can see at a glance whether you're on track or over budget for that category.</p>
 
   <p><strong>Why by Category and not by Group?</strong> Budgets work best when they're specific. A Group like "Bills" can cover very different expenses with very different limits — setting one budget per Category (Mobile, Internet, Utility, etc.) gives you a much clearer picture of exactly where you're overspending, rather than one blurry number for the whole Group.</p>
+
+  <h2 id="importing-data">Importing from Another App</h2>
+  <p>Switching from another expense tracker? You can bring your old data into Money Manager by converting it into a CSV file that matches our template, then using <strong>Settings → Restore</strong> to load it in.</p>
+
+  <p>The easiest way to convert your old data: copy the prompt below, paste it into any AI chatbot (ChatGPT, Claude, Gemini, etc.) along with your old export file, and it'll do the reformatting for you.</p>
+
+  <h2 style="margin-top:32px;font-size:1.05rem;">The Template</h2>
+  <p>Your converted CSV needs exactly these 8 columns, in this order:</p>
+
+  <div class="example">
+    <div class="example-group">CSV Columns <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(in order)</span></div>
+    <div class="example-categories">
+      <div class="example-cat">Item</div>
+      <div class="example-cat">Amount</div>
+      <div class="example-cat">Type</div>
+      <div class="example-cat">Category</div>
+      <div class="example-cat">Group</div>
+      <div class="example-cat">Date</div>
+      <div class="example-cat">Time</div>
+      <div class="example-cat">Notes</div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:32px;font-size:1.05rem;">Format Rules</h2>
+  <ul>
+    <li><strong>Date:</strong> Day first — <code>D/M/YYYY</code> (e.g. <code>3/8/2026</code> for 3 August 2026, not US-style month-first)</li>
+    <li><strong>Time:</strong> 24-hour format, <code>H:MM</code> or <code>HH:MM</code> (e.g. <code>9:30</code> or <code>14:45</code>)</li>
+    <li><strong>Type:</strong> exactly <code>Income</code> or <code>Expense</code></li>
+    <li><strong>Group:</strong> exactly <code>Spend</code>, <code>Subscription</code>, or <code>Investment</code></li>
+    <li><strong>Category:</strong> any text — new categories are created automatically on import</li>
+    <li><strong>Amount:</strong> plain number, no currency symbol (e.g. <code>45.90</code>, not <code>$45.90</code>)</li>
+  </ul>
+
+  <h2 style="margin-top:32px;font-size:1.05rem;">Copy This Prompt</h2>
+  <p>Paste this into your AI chatbot along with your old export file:</p>
+
+  <div class="example" style="position:relative;">
+    <button onclick="copyPrompt()" id="copyBtn" style="position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy-deep);border:none;border-radius:8px;padding:6px 14px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;">Copy</button>
+    <p id="promptText" style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--text-soft);white-space:pre-wrap;line-height:1.6;margin-top:8px;">Please convert the transaction data I give you into a CSV file with exactly these 8 columns, in this exact order: Item, Amount, Type, Category, Group, Date, Time, Notes
+
+Formatting rules:
+- Item: the merchant name or description of the transaction
+- Amount: a plain number with no currency symbol (e.g. 45.90)
+- Type: exactly "Income" or "Expense"
+- Category: keep my existing category names, just remove any emoji
+- Group: classify each entry as exactly "Spend", "Subscription", or "Investment" — use "Spend" as the default for everyday purchases and income, "Subscription" only for recurring subscription services, and "Investment" only for stock/brokerage/investment-related transactions
+- Date: format as D/M/YYYY (day first, then month, then year — NOT US-style month-first). Example: 3/8/2026 means 3 August 2026
+- Time: 24-hour format, H:MM or HH:MM (e.g. 9:30 or 14:45)
+- Notes: leave blank unless there's extra context worth keeping
+
+Please output the result as a downloadable CSV file with a header row matching the column names above.</p>
+  </div>
+
+  <script>
+  function copyPrompt(){
+    const text = document.getElementById('promptText').innerText;
+    navigator.clipboard.writeText(text).then(()=>{
+      const btn = document.getElementById('copyBtn');
+      const original = btn.innerText;
+      btn.innerText = 'Copied!';
+      setTimeout(()=>{btn.innerText = original;}, 2000);
+    });
+  }
+  </script>
+
+  <h2 style="margin-top:32px;font-size:1.05rem;">Steps</h2>
+  <ul>
+    <li>Export your data from your old app (usually found in its Settings or Export menu)</li>
+    <li>Copy the prompt above, and paste it into your AI chatbot along with your exported file</li>
+    <li>Download the CSV file the AI gives you back</li>
+    <li>In Money Manager, go to <strong>Settings → Restore</strong> and select that file</li>
+  </ul>
+
+  <p style="color:#E8A87C;font-weight:600;margin-top:16px;">⚠️ Restoring replaces all current data on your device — this can't be undone. If you already have entries in the app, back them up first (Settings → Backup) before restoring.</p>
 
   <footer>© 2026 OinkOink Labs</footer>
 </div>
