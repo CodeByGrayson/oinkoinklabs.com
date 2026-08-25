@@ -64,36 +64,52 @@
     padding:24px 0;text-align:center;
   }
 
-  /* JUMP LINK BAR */
-  .topics{
-    display:flex;flex-wrap:wrap;gap:10px;
-    margin-bottom:48px;
-  }
-  .topics a{
-    font-family:'Baloo 2',sans-serif;font-weight:600;font-size:.86rem;
-    color:var(--text-soft);text-decoration:none;
+  /* APP-FLOW PROGRESS RAIL — shows where you are in the app's own top-level order */
+  .flow-rail{
+    display:flex;gap:6px;margin-bottom:40px;
     background:var(--navy-card);border:1px solid var(--navy-line);
-    padding:9px 16px;border-radius:20px;
-    transition:border-color .2s ease, color .2s ease;
+    border-radius:14px;padding:6px;
   }
-  .topics a:hover{border-color:var(--gold);color:var(--gold);}
+  .flow-rail a{
+    flex:1;text-align:center;text-decoration:none;
+    font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.78rem;
+    color:#7d92b4;padding:10px 4px;border-radius:10px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .flow-rail a:hover{color:#fff;background:rgba(255,255,255,0.04);}
 
-  /* CATEGORY GROUPING */
-  .category{margin-top:56px;}
-  .category:first-of-type{margin-top:0;}
-  .category-title{
+  /* SECTION-LEVEL GROUPING (Entries / Insights / Budget / Settings) */
+  .tab-section{margin-top:64px;}
+  .tab-section:first-of-type{margin-top:0;}
+  .tab-section-title{
     font-family:'Baloo 2',sans-serif;font-weight:800;color:#fff;
-    font-size:1rem;letter-spacing:.06em;text-transform:uppercase;
-    padding-bottom:10px;margin-bottom:8px;
-    border-bottom:1px solid var(--navy-line);
+    font-size:1.55rem;
+    padding-bottom:14px;margin-bottom:6px;
+    border-bottom:2px solid var(--gold);
+    display:flex;align-items:center;gap:10px;
+    scroll-margin-top:24px;
+  }
+  .tab-section-sub{color:#7d92b4;font-size:.88rem;margin-bottom:28px;}
+
+  /* SUB-TOPIC (a tile/screen within a tab, e.g. "By Category" within Insights) */
+  .subtopic{margin-top:40px;}
+  .subtopic:first-of-type{margin-top:20px;}
+  .subtopic-title{
+    font-family:'Baloo 2',sans-serif;font-weight:700;color:var(--gold);
+    font-size:1.05rem;letter-spacing:.02em;
+    margin-bottom:4px;
+    display:flex;align-items:center;gap:8px;
+    scroll-margin-top:24px;
+  }
+  .subtopic-path{
+    font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#5f7290;
+    margin-bottom:14px;
   }
 
   h2{
     font-family:'Baloo 2',sans-serif;font-weight:700;color:var(--gold);
-    font-size:1.3rem;margin-top:38px;margin-bottom:14px;
-    scroll-margin-top:24px;
+    font-size:1.05rem;margin-top:0;margin-bottom:14px;
   }
-  .category h2:first-of-type{margin-top:24px;}
   p, li{color:var(--text-soft);font-size:.98rem;}
   ul{margin:12px 0 12px 22px;}
   li{margin-bottom:6px;}
@@ -117,22 +133,51 @@
   }
   .example-cat::before{content:"—";color:var(--navy-line);}
 
-  /* PLACEHOLDER / COMING SOON CARD */
+  /* PLACEHOLDER / "PLANNED" CARD — fill-in-the-blank content */
   .placeholder{
     border:1.5px dashed var(--navy-line);border-radius:12px;
-    padding:18px 20px;margin-top:38px;margin-bottom:14px;
+    padding:18px 20px;
     background:rgba(255,255,255,0.015);
   }
-  .placeholder-title{
-    font-family:'Baloo 2',sans-serif;font-weight:700;color:#7d92b4;
-    font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:6px;
-  }
   .placeholder-tag{
-    font-family:'Inter',sans-serif;font-weight:600;font-size:.68rem;
+    display:inline-block;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:.66rem;
     color:var(--navy-deep);background:var(--gold);
-    padding:2px 8px;border-radius:20px;letter-spacing:.03em;
+    padding:2px 9px;border-radius:20px;letter-spacing:.03em;
+    margin-bottom:10px;
   }
-  .placeholder p{color:#5f7290;font-size:.88rem;}
+  .placeholder-planned{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:.78rem;
+    color:#7d92b4;text-transform:uppercase;letter-spacing:.04em;
+    margin-bottom:4px;
+  }
+  .placeholder p{color:#5f7290;font-size:.9rem;margin-bottom:0;}
+  .placeholder textarea.draft{
+    width:100%;margin-top:12px;min-height:70px;
+    background:var(--navy-deep);border:1px solid var(--navy-line);border-radius:8px;
+    color:var(--text-soft);font-family:'Inter',sans-serif;font-size:.88rem;
+    padding:10px 12px;resize:vertical;
+  }
+
+  /* DONE badge for topics that already have real written content */
+  .done-tag{
+    display:inline-block;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:.66rem;
+    color:#0E1B31;background:#7FD9A8;
+    padding:2px 9px;border-radius:20px;letter-spacing:.03em;
+  }
+
+
+  /* SCREENSHOT SLOT — placeholder marker for where a real app screenshot goes once design is finalized */
+  .shot-slot{
+    display:flex;align-items:center;gap:10px;
+    border:1.5px dashed #3a5578;border-radius:10px;
+    padding:10px 14px;margin-bottom:16px;
+    background:rgba(255,255,255,0.02);
+    font-size:.82rem;color:#5f7290;
+  }
+  .shot-slot::before{content:"📸";font-size:1rem;flex-shrink:0;}
+  .shot-slot b{color:#7d92b4;}
 
   footer{
     border-top:1px solid var(--navy-line);
@@ -149,89 +194,448 @@
   </nav>
 
   <h1>Help & Guides</h1>
-  <p class="subtitle">Money Manager Expense Tracker · Quick answers to common questions</p>
+  <p class="subtitle">Money Manager Expense Tracker · Organized to match the app itself — read top to bottom, in the same order as the tabs</p>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input type="text" id="helpSearch" placeholder="Search help topics..." autocomplete="off">
   </div>
 
-  <div class="topics" id="topicPills">
-    <a href="#groups-vs-categories">Groups vs Categories</a>
-    <a href="#budgets">Budgets</a>
-    <a href="#recurring">Recurring Transactions</a>
-    <a href="#daily-reminder">Daily Reminder</a>
-    <a href="#importing-data">Importing from Another App</a>
+  <div class="flow-rail" id="flowRail">
+    <a href="#tab-entries">Entries</a>
+    <a href="#tab-insights">Insights</a>
+    <a href="#tab-budget">Budget</a>
+    <a href="#tab-settings">Settings</a>
   </div>
 
   <p id="noResults">No topics match your search.</p>
 
   <!-- ============================================= -->
-  <!-- GETTING STARTED -->
+  <!-- TAB 1: ENTRIES -->
   <!-- ============================================= -->
-  <div class="category" data-category="getting-started">
-    <div class="category-title">Getting Started</div>
+  <div class="tab-section" id="tab-entries" data-category="entries">
+    <div class="tab-section-title">📋 Entries</div>
+    <div class="tab-section-sub">The first tab — where every transaction gets logged</div>
 
-    <h2 id="groups-vs-categories">Groups vs Categories</h2>
-    <p>In Money Manager, every entry is organized on two levels: a <strong>Group</strong> and a <strong>Category</strong>.</p>
+    <div class="subtopic" id="groups-vs-categories">
+      <div class="subtopic-title">Groups vs Categories <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Entries → Add Entry → choosing a Group and Category</div>
 
-    <p><strong>Group</strong> is the big-picture bucket — think of it as the "type" of spending. <strong>Category</strong> sits underneath a Group, and gets more specific about exactly what the entry was for.</p>
+      <p>In Money Manager, every entry is organized on two levels: a <strong>Group</strong> and a <strong>Category</strong>.</p>
+      <p><strong>Group</strong> is the big-picture bucket — think of it as the "type" of spending. <strong>Category</strong> sits underneath a Group, and gets more specific about exactly what the entry was for.</p>
+      <p>Here's an example:</p>
 
-    <p>Here's an example:</p>
+      <div class="example">
+        <div class="example-group">Bills <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(Group)</span></div>
+        <div class="example-categories">
+          <div class="example-cat">Utility <span style="color:#7d92b4;">(Category)</span></div>
+          <div class="example-cat">Internet <span style="color:#7d92b4;">(Category)</span></div>
+          <div class="example-cat">Mobile <span style="color:#7d92b4;">(Category)</span></div>
+        </div>
+      </div>
 
-    <div class="example">
-      <div class="example-group">Bills <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(Group)</span></div>
-      <div class="example-categories">
-        <div class="example-cat">Utility <span style="color:#7d92b4;">(Category)</span></div>
-        <div class="example-cat">Internet <span style="color:#7d92b4;">(Category)</span></div>
-        <div class="example-cat">Mobile <span style="color:#7d92b4;">(Category)</span></div>
+      <p>So if you pay your electricity bill, you'd log it under Group: <strong>Bills</strong>, Category: <strong>Utility</strong>. Your phone plan would be Group: <strong>Bills</strong>, Category: <strong>Mobile</strong> — same Group, different Category.</p>
+      <p>This two-level structure keeps your Insights clean: you can zoom out and see "how much did Bills cost me this month?" or zoom in and see "how much specifically went to Internet?" — both from the same set of entries.</p>
+      <p><strong>A good rule of thumb:</strong> if you're not sure whether something should be a new Group or just a new Category, ask whether it's a different <em>type</em> of spending (→ new Group) or just a more specific <em>version</em> of spending you already track (→ new Category under an existing Group).</p>
+    </div>
+
+    <div class="subtopic" id="adding-editing-entries">
+      <div class="subtopic-title">Adding & Editing an Entry</div>
+      <div class="subtopic-path">Entries → tap + / tap an existing entry</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Add/Edit Entry screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Fields available (Item, Amount, Type, Category, Group, Date, Time, Notes), how editing an entry works, and any quirks worth flagging.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
       </div>
     </div>
 
-    <p>So if you pay your electricity bill, you'd log it under Group: <strong>Bills</strong>, Category: <strong>Utility</strong>. Your phone plan would be Group: <strong>Bills</strong>, Category: <strong>Mobile</strong> — same Group, different Category.</p>
-
-    <p>This two-level structure keeps your Insights clean: you can zoom out and see "how much did Bills cost me this month?" or zoom in and see "how much specifically went to Internet?" — both from the same set of entries.</p>
-
-    <p><strong>A good rule of thumb:</strong> if you're not sure whether something should be a new Group or just a new Category, ask whether it's a different <em>type</em> of spending (→ new Group) or just a more specific <em>version</em> of spending you already track (→ new Category under an existing Group).</p>
-
-    <h2 id="importing-data">Importing from Another App</h2>
-    <p>Switching from another expense tracker? You can bring your old data into Money Manager by converting it into a CSV file that matches our template, then using <strong>Settings → Restore</strong> to load it in.</p>
-
-    <p>The easiest way to convert your old data: copy the prompt below, paste it into any AI chatbot (ChatGPT, Claude, Gemini, etc.) along with your old export file, and it'll do the reformatting for you.</p>
-
-    <h2 style="margin-top:32px;font-size:1.05rem;">The Template</h2>
-    <p>Your converted CSV needs exactly these 8 columns, in this order:</p>
-
-    <div class="example">
-      <div class="example-group">CSV Columns <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(in order)</span></div>
-      <div class="example-categories">
-        <div class="example-cat">Item</div>
-        <div class="example-cat">Amount</div>
-        <div class="example-cat">Type</div>
-        <div class="example-cat">Category</div>
-        <div class="example-cat">Group</div>
-        <div class="example-cat">Date</div>
-        <div class="example-cat">Time</div>
-        <div class="example-cat">Notes</div>
+    <div class="subtopic" id="copy-entry">
+      <div class="subtopic-title">Copying an Entry</div>
+      <div class="subtopic-path">Entries → Edit Entry → date-choice dialog</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Copy Entry dialog — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>How to duplicate an existing entry to a new date, and why that's faster than re-entering everything by hand.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
       </div>
     </div>
 
-    <h2 style="margin-top:32px;font-size:1.05rem;">Format Rules</h2>
-    <ul>
-      <li><strong>Date:</strong> Day first — <code>D/M/YYYY</code> (e.g. <code>3/8/2026</code> for 3 August 2026, not US-style month-first)</li>
-      <li><strong>Time:</strong> 24-hour format, <code>H:MM</code> or <code>HH:MM</code> (e.g. <code>9:30</code> or <code>14:45</code>)</li>
-      <li><strong>Type:</strong> exactly <code>Income</code> or <code>Expense</code></li>
-      <li><strong>Group:</strong> exactly <code>Spend</code>, <code>Subscription</code>, or <code>Investment</code></li>
-      <li><strong>Category:</strong> any text — new categories are created automatically on import</li>
-      <li><strong>Amount:</strong> plain number, no currency symbol (e.g. <code>45.90</code>, not <code>$45.90</code>)</li>
-    </ul>
+    <div class="subtopic" id="search">
+      <div class="subtopic-title">Search</div>
+      <div class="subtopic-path">Entries → search icon</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Search screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Searching across all months by item, category, or notes.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+    </div>
+  </div>
 
-    <h2 style="margin-top:32px;font-size:1.05rem;">Copy This Prompt</h2>
-    <p>Paste this into your AI chatbot along with your old export file:</p>
+  <!-- ============================================= -->
+  <!-- TAB 2: INSIGHTS -->
+  <!-- ============================================= -->
+  <div class="tab-section" id="tab-insights" data-category="insights">
+    <div class="tab-section-title">📈 Insights</div>
+    <div class="tab-section-sub">Second tab — in the same order as the tile grid: By Group, By Category, Monthly Trend, Net Flow, Cash Flow, Money Flow</div>
 
-    <div class="example" style="position:relative;">
-      <button onclick="copyPrompt()" id="copyBtn" style="position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy-deep);border:none;border-radius:8px;padding:6px 14px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;">Copy</button>
-      <p id="promptText" style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--text-soft);white-space:pre-wrap;line-height:1.6;margin-top:8px;">Please convert the transaction data I give you into a CSV file with exactly these 8 columns, in this exact order: Item, Amount, Type, Category, Group, Date, Time, Notes
+    <img src="assets/insights-overview.jpg" alt="Insights tab overview showing all 6 chart tiles" style="width:100%;border-radius:12px;border:1px solid var(--navy-line);margin-bottom:32px;">
+
+    <div class="subtopic" id="by-group">
+      <div class="subtopic-title">By Group <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → By Group</div>
+
+      <div style="display:flex;gap:12px;margin-bottom:16px;">
+        <img src="assets/insights-by-group-income.jpg" alt="By Group donut chart showing Income breakdown" style="width:50%;border-radius:12px;border:1px solid var(--navy-line);">
+        <img src="assets/insights-by-group-expense.jpg" alt="By Group donut chart showing Expense breakdown" style="width:50%;border-radius:12px;border:1px solid var(--navy-line);">
+      </div>
+
+      <p>By Group gives you the widest possible zoom-out on your spending — a donut chart broken down purely by <strong>Group</strong> (the big-picture bucket), not the finer Category level underneath it.</p>
+      <p>Use this when you want a quick, top-level read on where your money went overall — "how much of my month was Bills vs. Food vs. Transport" — without getting into the specific Categories inside each Group.</p>
+      <p>Each slice represents one Group's total spend for the selected month, sized proportionally, with a legend below listing the exact amount and percentage for each. Tap any slice or list row to see its Categories broken down further, or head to <a href="#by-category">By Category</a> for that level of detail directly.</p>
+      <p><strong>When to use By Group vs. By Category:</strong> start here if you want the big picture first, then drill into By Category once you've spotted a Group that looks bigger than expected.</p>
+        </div>
+
+    <div class="subtopic" id="by-category">
+      <div class="subtopic-title">By Category <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → By Category</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> By Category donut chart — add once visual design is finalized</span></div>
+
+      <p>By Category is the same donut-chart idea as <a href="#by-group">By Group</a>, but one level more specific — every slice here represents a single <strong>Category</strong> (like Mobile, Internet, or Groceries), not the wider Group it sits under.</p>
+      <p>This is the view to use when you already know roughly where your spending is concentrated and want the exact breakdown — e.g. you know Bills is high this month, and want to see exactly how much of that was Mobile vs. Internet vs. Utility.</p>
+      <p>Each slice has a thin divider line between it and its neighbors, so even categories with similar colors stay easy to tell apart at a glance. The list below the chart shows every category's exact dollar amount and percentage of your total, with the biggest spenders naturally standing out.</p>
+        </div>
+
+    <div class="subtopic" id="monthly-trend">
+      <div class="subtopic-title">Monthly Trend <span style="color:#7d92b4;font-weight:500;font-size:.75rem;">(formerly "By Month")</span> <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → Monthly Trend</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Monthly Trend line chart + breakdown list — add once visual design is finalized</span></div>
+
+      <p>Monthly Trend shows how your Income, Expense, and Net Balance move over time, plotted together on one line chart — solid blue for Income, solid red for Expense, and a dashed green line for Net Balance (Income minus Expense).</p>
+      <p>Use the dropdown at the top to view the last <strong>4, 6, 9, or 12 months</strong>. Your choice is remembered the next time you open this screen.</p>
+
+      <h2 style="margin-top:24px;">Reading the chart</h2>
+      <p>As long as your dashed green Net Balance line stays above your red Expense line, you're spending less than you earn that month — a healthy sign. A thin dotted guide line runs vertically at each month so you can trace exactly where each line sits at a glance.</p>
+      <p>If you're brand new and only have one month of data tracked so far, you'll see a faded, dashed line rising from a "Start" point up to your real numbers — this is just a visual guide showing progression, not a real second month of data.</p>
+
+      <h2 style="margin-top:24px;">The 3 summary cards</h2>
+      <p>Above the chart, three cards show your <strong>currently selected month's</strong> Income, Expense, and Net Balance, each with a "vs previous month" percentage underneath — an up arrow for improvement, down for decline. (For Expense, a decrease is the good direction, so it's the down arrow that's shown positively.)</p>
+
+      <h2 style="margin-top:24px;">Monthly Breakdown list</h2>
+      <p>Below the chart, every month in your selected range is listed newest-first, each with a mini bar comparing that month's Income against Expense, plus the resulting Net Balance. Bar lengths are scaled consistently across the whole list, so you can compare bar length between different months meaningfully — not just within a single row.</p>
+        </div>
+
+    <div class="subtopic" id="net-flow">
+      <div class="subtopic-title">Net Flow <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → Net Flow</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Net Flow wave chart + Financial Breakdown — add once visual design is finalized</span></div>
+
+      <p>Net Flow visualizes your Income and Expense as two flowing bands — blue for Income rising above a center line, coral for Expense dipping below it — sized so the <em>height</em> of each band is genuinely proportional to the real dollar amount. A month where you earned $26,000 will show a dramatically taller blue band than a month where you earned $2,000 — the scale is shared and consistent across your whole selected range.</p>
+      <p>Choose 4, 6, 9, or 12 months from the dropdown at the top, same as Monthly Trend.</p>
+
+      <h2 style="margin-top:24px;">The Net label</h2>
+      <p>Above each month, a single number shows that month's Net (Income minus Expense), colored to match your savings-rate tier for that month — the same red / amber / green / teal system used on <a href="#cash-flow">Cash Flow</a>. A teal "FIRE Level" figure here means that month hit 40%+ savings, exactly as it would on your Cash Flow ring.</p>
+      <p>At 9 or 12 months, labels alternate between two rows to avoid crowding, and the dotted guide line for each month is tinted to match that month's tier color too.</p>
+
+      <h2 style="margin-top:24px;">Financial Breakdown</h2>
+      <p>Below the chart, four cards summarize your <strong>currently selected month</strong>: Income (always blue), Expenses (always coral), Net Flow, and Savings Rate — the last two both colored by your tier for that month, so they always agree with each other and with the chart above.</p>
+        </div>
+
+    <div class="subtopic" id="cash-flow">
+      <div class="subtopic-title">Cash Flow — Your Savings Health Gauge <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → Cash Flow</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Cash Flow ring — all 4 tier colors — add once visual design is finalized</span></div>
+
+      <p>Cash Flow answers one question at a glance: <strong>what percentage of your income are you actually keeping?</strong> Your savings rate — (Income − Expense) ÷ Income — is shown as a ring gauge, colored and labeled by which of 4 tiers it falls into.</p>
+
+      <h2 style="margin-top:24px;">The 4 tiers</h2>
+      <ul>
+        <li><strong>Unhealthy</strong> (red) — below 10% saved</li>
+        <li><strong>Getting Tight</strong> (amber) — 10% to 20% saved</li>
+        <li><strong>Healthy</strong> (green) — 20% to 40% saved</li>
+        <li><strong>🔥 FIRE Level</strong> (teal) — 40% and above — named after the Financial Independence, Retire Early movement</li>
+      </ul>
+      <p>The ring has an opening at its lower-right, where your percentage and trend arrow sit — your tier's name (e.g. "Healthy") appears as a badge in the ring's center. The thin outer rim is a fixed legend, always showing the full red-to-teal spectrum regardless of your current value, so you can see at a glance how close you are to your next tier. The thick inner ring is your actual result — its length shows your percentage, and its color always matches your current tier exactly.</p>
+      <p>Below the ring, a line spells it out in plain terms: "You saved $X of $Y income."</p>
+
+      <h2 style="margin-top:24px;">The trend strip</h2>
+      <p>Below the gauge, a bar for each month in your selected range (4, 6, 9, or 12 months, chosen from the dropdown) shows your savings rate over time, colored by tier, connected by a dashed line so you can see whether you're trending toward or away from a healthier tier.</p>
+        </div>
+
+    <div class="subtopic" id="money-flow">
+      <div class="subtopic-title">Money Flow <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Insights → Money Flow</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Money Flow Sankey diagram — add once visual design is finalized</span></div>
+
+      <p>Money Flow shows where your money came from and where it went, as one continuous diagram — this style of chart is called a <strong>Sankey diagram</strong>, and it's especially good at showing "flow" between sources and destinations.</p>
+      <p>Read it left to right: on the left, each colored band is one <strong>Income source</strong> (e.g. Bonus, Rental, Allowance), sized by how much it contributed. Those bands converge in the middle into your total Net saved for the month. From there, on the right, the flow splits back out into your <strong>Expense categories</strong>, each band sized by how much you spent in that category.</p>
+      <p>Two summary cards at the top show your total Income and Expenses for the selected month. Below the diagram, "Income by Category" and "Expenses by Category" lists give you the exact dollar amount and percentage behind each band — tap any row to see more detail.</p>
+      <p>This is the view to use when you want to see the full picture in one glance — not just "how much did I spend on Food," but "how did my Bonus and Rental income actually end up covering my Food, Transport, and Bills this month."</p>
+        </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- TAB 3: BUDGET -->
+  <!-- ============================================= -->
+  <div class="tab-section" id="tab-budget" data-category="budget">
+    <div class="tab-section-title">🎯 Budget</div>
+    <div class="tab-section-sub">Third tab — setting and tracking spending limits</div>
+
+    <div class="subtopic" id="budgets">
+      <div class="subtopic-title">Budgets <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Budget tab</div>
+
+      <p>Budgets let you set a spending limit for a specific <strong>Category</strong> — not a whole Group.</p>
+      <p>For example, you could set a $50 monthly budget on <strong>Mobile</strong> and a separate $30 budget on <strong>Internet</strong>. Each budget is tracked independently, even though both categories sit under the same "Bills" Group.</p>
+      <p>As you log expenses under a budgeted category, the app automatically compares your actual spending against the limit you set — so you can see at a glance whether you're on track or over budget for that category.</p>
+      <p><strong>Why by Category and not by Group?</strong> Budgets work best when they're specific. A Group like "Bills" can cover very different expenses with very different limits — setting one budget per Category (Mobile, Internet, Utility, etc.) gives you a much clearer picture of exactly where you're overspending, rather than one blurry number for the whole Group.</p>
+    </div>
+  </div>
+
+  <!-- ============================================= -->
+  <!-- TAB 4: SETTINGS -->
+  <!-- ============================================= -->
+  <div class="tab-section" id="tab-settings" data-category="settings">
+    <div class="tab-section-title">⚙️ Settings</div>
+    <div class="tab-section-sub">Fourth tab — in the same order as the Settings grid</div>
+
+    <div class="subtopic" id="profile">
+      <div class="subtopic-title">Profile</div>
+      <div class="subtopic-path">Settings → Profile</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Profile screen (incl. currency picker) — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Setting your name and photo, choosing your <strong>currency</strong> (no longer locked to SGD — display/formatting only, not conversion), and what's shown in the About section.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+    </div>
+
+    <div class="subtopic" id="managing-groups">
+      <div class="subtopic-title">Managing Groups</div>
+      <div class="subtopic-path">Settings → Group</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Group management screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Creating, editing, reordering (drag-to-reorder), and deleting Groups. Cross-reference the "Groups vs Categories" topic under Entries for the concept itself.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+    </div>
+
+    <div class="subtopic" id="managing-categories">
+      <div class="subtopic-title">Managing Categories</div>
+      <div class="subtopic-path">Settings → Category</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Category management screen — add once visual design is finalized</span></div>
+
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Creating, editing, reordering, and deleting Categories, and how they nest under Groups.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+
+      <h2 style="margin-top:28px;font-size:1.05rem;">Default Income Groups & Categories</h2>
+      <p>Out of the box, Money Manager comes with 4 Income Groups, each with a starting set of Categories underneath. You can rename, recolor, reorder, or add your own at any time — this is just the default starting point.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;">
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#412402;background:#F5A623;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Active Income</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#F5A623;margin-right:6px;"></span>Salary</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#B98A5E;margin-right:6px;"></span>Freelance</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#E8C547;margin-right:6px;"></span>Bonus</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#D97757;margin-right:6px;"></span>Commission</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#04342C;background:#45B69C;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Passive Income</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#45B69C;margin-right:6px;"></span>Rental</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#9B9B9B;margin-right:6px;"></span>Royalties</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#4B1528;background:#E85D9C;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Portfolio</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#5B8DEF;margin-right:6px;"></span>Dividends</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#9B9B9B;margin-right:6px;"></span>Interest</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#B98A5E;margin-right:6px;"></span>Capital Gains</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#412402;background:#C9A876;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Other Income</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#C9A876;margin-right:6px;"></span>Others (G)</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#7F77DD;margin-right:6px;"></span>Gifts</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#639922;margin-right:6px;"></span>Refunds/Cashback</div>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 style="margin-top:32px;font-size:1.05rem;">Default Expense Groups & Categories</h2>
+      <p>The Expense side follows the same idea — 5 Groups, each with a starting set of Categories underneath, all fully customizable.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;">
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#042C53;background:#5B8DEF;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Essentials</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#F5A623;margin-right:6px;"></span>Food</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#4BA3C7;margin-right:6px;"></span>Transport</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#E85D75;margin-right:6px;"></span>Health</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#B98A5E;margin-right:6px;"></span>Rent</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#26215C;background:#9B6BDF;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Bills</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#E0A83E;margin-right:6px;"></span>Utility</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#5B8DEF;margin-right:6px;"></span>Internet</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#7F77DD;margin-right:6px;"></span>Mobile</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#9B9B9B;margin-right:6px;"></span>Insurance</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#D97757;margin-right:6px;"></span>Subscriptions</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#04342C;background:#4CAF7D;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Lifestyle</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#E8C547;margin-right:6px;"></span>Entertainment</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#D4537E;margin-right:6px;"></span>Shopping</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#F0997B;margin-right:6px;"></span>Dining Out</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;">
+          <div class="example-group" style="color:#412402;background:#E8C547;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Investing</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#45B69C;margin-right:6px;"></span>Stocks</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#6FA8FF;margin-right:6px;"></span>Crypto</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#639922;margin-right:6px;"></span>Savings/Deposit</div>
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#C08552;margin-right:6px;"></span>Retirement/Pension</div>
+          </div>
+        </div>
+
+        <div class="example" style="margin:0;grid-column:span 2;">
+          <div class="example-group" style="color:#2C2C2A;background:#8C8C8C;margin:-20px -22px 14px;padding:12px 22px;border-radius:12px 12px 0 0;">Other Expense</div>
+          <div class="example-categories" style="margin-left:4px;">
+            <div class="example-cat"><span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#8C8C8C;margin-right:6px;"></span>Others (C)</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="subtopic" id="settings-budget">
+      <div class="subtopic-title">Budget (Settings tile)</div>
+      <div class="subtopic-path">Settings → Budget</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Settings → Budget tile/screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>How this tile relates to the main Budget tab — confirm if this is just a shortcut, or has settings of its own worth documenting separately.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+    </div>
+
+    <div class="subtopic" id="recurring">
+      <div class="subtopic-title">Recurring Transactions <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Settings → Recurring</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Recurring screen (Active/Stopped view) — add once visual design is finalized</span></div>
+
+      <p>Some transactions happen like clockwork — your salary, rent, a subscription, your daily commute. Instead of entering them by hand every time, set them up once as <strong>Recurring</strong>, and Money Manager keeps track of the schedule for you.</p>
+
+      <h2 style="margin-top:24px;">Setting the schedule</h2>
+      <p>When you create a recurring transaction, choose how often it repeats:</p>
+      <ul>
+        <li><strong>Daily</strong> — for things like daily transport or coffee</li>
+        <li><strong>Custom Days</strong> — pick specific days that work for your routine</li>
+        <li><strong>Specific Day</strong> — a fixed date each month, like a subscription that bills on the 27th</li>
+      </ul>
+      <p>If you choose a Specific Day near the end of the month (like the 30th or 31st), don't worry about short months — if a month doesn't have that day, Money Manager automatically uses that month's last day instead, so nothing gets skipped.</p>
+
+      <h2 style="margin-top:24px;">Active vs. Stopped</h2>
+      <p>Your Recurring screen keeps entries in two groups:</p>
+      <div class="example">
+        <div class="example-group">Recurring <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(Status)</span></div>
+        <div class="example-categories">
+          <div class="example-cat">Active <span style="color:#7d92b4;">— currently repeating on schedule</span></div>
+          <div class="example-cat">Stopped <span style="color:#7d92b4;">— paused, but not deleted</span></div>
+        </div>
+      </div>
+      <p>If a subscription goes on pause or you want to stop tracking something without losing your history, tap into the entry and select <strong>Turn Off Recurring</strong>. It'll move to Stopped, and you can always set it up again later.</p>
+
+      <h2 style="margin-top:24px;">A few ways to use it well</h2>
+      <ul>
+        <li>Set up your salary and fixed bills first — this gives your Insights and Cash Flow a realistic picture with minimal daily effort</li>
+        <li>Use Custom Days for things with irregular-but-predictable patterns, like weekday-only commuting costs</li>
+        <li>Don't delete a recurring entry just because you're pausing it — Turn Off Recurring keeps the setup ready for when it starts again</li>
+      </ul>
+      <p style="margin-top:16px;color:#7d92b4;font-size:.88rem;">⚠️ Note: editing an entry's <em>category</em> currently updates only that one occurrence, not the recurring template itself — a fix is under consideration. Amount/item edits are intentionally occurrence-only by design.</p>
+    </div>
+
+    <div class="subtopic" id="backup">
+      <div class="subtopic-title">Backup</div>
+      <div class="subtopic-path">Settings → Backup</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Backup screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>How CSV backup works, what gets included (and what doesn't — e.g. your profile photo), and best practices for how often to back up.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
+    </div>
+
+    <div class="subtopic" id="restore">
+      <div class="subtopic-title">Restore <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Settings → Restore</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Restore screen + CSV template — add once visual design is finalized</span></div>
+
+      <p>Switching from another expense tracker? You can bring your old data into Money Manager by converting it into a CSV file that matches our template, then using <strong>Settings → Restore</strong> to load it in.</p>
+      <p>The easiest way to convert your old data: copy the prompt below, paste it into any AI chatbot (ChatGPT, Claude, Gemini, etc.) along with your old export file, and it'll do the reformatting for you.</p>
+
+      <h2 style="margin-top:24px;">The Template</h2>
+      <p>Your converted CSV needs exactly these 8 columns, in this order:</p>
+      <div class="example">
+        <div class="example-group">CSV Columns <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(in order)</span></div>
+        <div class="example-categories">
+          <div class="example-cat">Item</div>
+          <div class="example-cat">Amount</div>
+          <div class="example-cat">Type</div>
+          <div class="example-cat">Category</div>
+          <div class="example-cat">Group</div>
+          <div class="example-cat">Date</div>
+          <div class="example-cat">Time</div>
+          <div class="example-cat">Notes</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:24px;">Format Rules</h2>
+      <ul>
+        <li><strong>Date:</strong> Day first — <code>D/M/YYYY</code> (e.g. <code>3/8/2026</code> for 3 August 2026, not US-style month-first)</li>
+        <li><strong>Time:</strong> 24-hour format, <code>H:MM</code> or <code>HH:MM</code> (e.g. <code>9:30</code> or <code>14:45</code>)</li>
+        <li><strong>Type:</strong> exactly <code>Income</code> or <code>Expense</code></li>
+        <li><strong>Group:</strong> exactly <code>Spend</code>, <code>Subscription</code>, or <code>Investment</code></li>
+        <li><strong>Category:</strong> any text — new categories are created automatically on import</li>
+        <li><strong>Amount:</strong> plain number, no currency symbol (e.g. <code>45.90</code>, not <code>$45.90</code>)</li>
+      </ul>
+
+      <h2 style="margin-top:24px;">Copy This Prompt</h2>
+      <p>Paste this into your AI chatbot along with your old export file:</p>
+      <div class="example" style="position:relative;">
+        <button onclick="copyPrompt()" id="copyBtn" style="position:absolute;top:16px;right:16px;background:var(--gold);color:var(--navy-deep);border:none;border-radius:8px;padding:6px 14px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;">Copy</button>
+        <p id="promptText" style="font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--text-soft);white-space:pre-wrap;line-height:1.6;margin-top:8px;">Please convert the transaction data I give you into a CSV file with exactly these 8 columns, in this exact order: Item, Amount, Type, Category, Group, Date, Time, Notes
 
 Formatting rules:
 - Item: the merchant name or description of the transaction
@@ -244,128 +648,61 @@ Formatting rules:
 - Notes: leave blank unless there's extra context worth keeping
 
 Please output the result as a downloadable CSV file with a header row matching the column names above.</p>
+      </div>
+
+      <h2 style="margin-top:24px;">Steps</h2>
+      <ul>
+        <li>Export your data from your old app (usually found in its Settings or Export menu)</li>
+        <li>Copy the prompt above, and paste it into your AI chatbot along with your exported file</li>
+        <li>Download the CSV file the AI gives you back</li>
+        <li>In Money Manager, go to <strong>Settings → Restore</strong> and select that file</li>
+      </ul>
+      <p style="color:#E8A87C;font-weight:600;margin-top:16px;">⚠️ Restoring replaces all current data on your device — this can't be undone. If you already have entries in the app, back them up first (Settings → Backup) before restoring.</p>
     </div>
 
-    <h2 style="margin-top:32px;font-size:1.05rem;">Steps</h2>
-    <ul>
-      <li>Export your data from your old app (usually found in its Settings or Export menu)</li>
-      <li>Copy the prompt above, and paste it into your AI chatbot along with your exported file</li>
-      <li>Download the CSV file the AI gives you back</li>
-      <li>In Money Manager, go to <strong>Settings → Restore</strong> and select that file</li>
-    </ul>
-
-    <p style="color:#E8A87C;font-weight:600;margin-top:16px;">⚠️ Restoring replaces all current data on your device — this can't be undone. If you already have entries in the app, back them up first (Settings → Backup) before restoring.</p>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- BUDGETING -->
-  <!-- ============================================= -->
-  <div class="category" data-category="budgeting">
-    <div class="category-title">Budgeting</div>
-
-    <h2 id="budgets">Budgets</h2>
-    <p>Budgets let you set a spending limit for a specific <strong>Category</strong> — not a whole Group.</p>
-
-    <p>For example, you could set a $50 monthly budget on <strong>Mobile</strong> and a separate $30 budget on <strong>Internet</strong>. Each budget is tracked independently, even though both categories sit under the same "Bills" Group.</p>
-
-    <p>As you log expenses under a budgeted category, the app automatically compares your actual spending against the limit you set — so you can see at a glance whether you're on track or over budget for that category.</p>
-
-    <p><strong>Why by Category and not by Group?</strong> Budgets work best when they're specific. A Group like "Bills" can cover very different expenses with very different limits — setting one budget per Category (Mobile, Internet, Utility, etc.) gives you a much clearer picture of exactly where you're overspending, rather than one blurry number for the whole Group.</p>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- AUTOMATION -->
-  <!-- ============================================= -->
-  <div class="category" data-category="automation">
-    <div class="category-title">Automation</div>
-
-    <h2 id="recurring">Recurring Transactions</h2>
-    <p>Some transactions happen like clockwork — your salary, rent, a subscription, your daily commute. Instead of entering them by hand every time, set them up once as <strong>Recurring</strong>, and Money Manager keeps track of the schedule for you.</p>
-
-    <p><strong>Setting the schedule</strong></p>
-    <p>When you create a recurring transaction, choose how often it repeats:</p>
-    <ul>
-      <li><strong>Daily</strong> — for things like daily transport or coffee</li>
-      <li><strong>Custom Days</strong> — pick specific days that work for your routine</li>
-      <li><strong>Specific Day</strong> — a fixed date each month, like a subscription that bills on the 27th</li>
-    </ul>
-
-    <p>If you choose a Specific Day near the end of the month (like the 30th or 31st), don't worry about short months — if a month doesn't have that day, Money Manager automatically uses that month's last day instead, so nothing gets skipped.</p>
-
-    <p><strong>Active vs. Stopped</strong></p>
-    <p>Your Recurring screen keeps entries in two groups:</p>
-
-    <div class="example">
-      <div class="example-group">Recurring <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(Status)</span></div>
-      <div class="example-categories">
-        <div class="example-cat">Active <span style="color:#7d92b4;">— currently repeating on schedule</span></div>
-        <div class="example-cat">Stopped <span style="color:#7d92b4;">— paused, but not deleted</span></div>
+    <div class="subtopic" id="theme">
+      <div class="subtopic-title">Theme</div>
+      <div class="subtopic-path">Settings → Theme</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Theme picker (Dark/Light/System) — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>Dark / Light / System options, and where the app-wide purple accent comes from.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
       </div>
     </div>
 
-    <p>If a subscription goes on pause or you want to stop tracking something without losing your history, tap into the entry and select <strong>Turn Off Recurring</strong>. It'll move to Stopped, and you can always set it up again later.</p>
+    <div class="subtopic" id="daily-reminder">
+      <div class="subtopic-title">Daily Reminder <span class="done-tag">Written</span></div>
+      <div class="subtopic-path">Settings → Reminder</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Reminder settings — add once visual design is finalized</span></div>
 
-    <p><strong>A few ways to use it well</strong></p>
-    <ul>
-      <li>Set up your salary and fixed bills first — this gives your Insights and Cash Flow a realistic picture with minimal daily effort</li>
-      <li>Use Custom Days for things with irregular-but-predictable patterns, like weekday-only commuting costs</li>
-      <li>Don't delete a recurring entry just because you're pausing it — Turn Off Recurring keeps the setup ready for when it starts again</li>
-    </ul>
-
-    <h2 id="daily-reminder">Daily Reminder</h2>
-    <p>Life gets busy — the Daily Reminder gives you a gentle nudge each day to log what you earned and spent yesterday, so nothing slips through the cracks.</p>
-
-    <p>Turn it on in <strong>Settings → Reminder</strong>, and pick a time that works for you. When it fires, you can log an entry straight from the notification — no need to even open the app first.</p>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- INSIGHTS & REPORTS  (placeholder — content not yet written) -->
-  <!-- ============================================= -->
-  <div class="category" data-category="insights">
-    <div class="category-title">Insights & Reports</div>
-
-    <div class="placeholder">
-      <div class="placeholder-title">📊 Understanding Your Insights <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: By Category, By Group, By Month, and Net Flow views — what each one shows and when to use it.</p>
+      <p>Life gets busy — the Daily Reminder gives you a gentle nudge each day to log what you earned and spent yesterday, so nothing slips through the cracks.</p>
+      <p>Turn it on in <strong>Settings → Reminder</strong>, and pick a time that works for you. When it fires, you can log an entry straight from the notification — no need to even open the app first.</p>
     </div>
 
-    <div class="placeholder">
-      <div class="placeholder-title">💰 Cash Flow — Your Savings Health Gauge <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: what the Healthy / Getting Tight / Unhealthy tiers mean, how the gauge is calculated, and how to read the 4-month trend strip.</p>
-    </div>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- DATA & ACCOUNT  (placeholder — content not yet written) -->
-  <!-- ============================================= -->
-  <div class="category" data-category="data-account">
-    <div class="category-title">Data & Account</div>
-
-    <div class="placeholder">
-      <div class="placeholder-title">💾 Backup & Restore Your Data <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: how CSV backup/restore works, what gets included (and what doesn't — e.g. your profile photo), and best practices.</p>
+    <div class="subtopic" id="premium">
+      <div class="subtopic-title">OinkOink Premium</div>
+      <div class="subtopic-path">Settings → Profile → OinkOink Premium</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> OinkOink Premium screen — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>What Premium removes (ads), what it costs (~$1/month, "buy me a cup of tea" framing), and how billing/cancellation works through Google Play.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
     </div>
 
-    <div class="placeholder">
-      <div class="placeholder-title">👤 Your Profile <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: setting your name and photo, and what currently is (and isn't) customizable.</p>
-    </div>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- PREMIUM & SUPPORT  (placeholder — content not yet written) -->
-  <!-- ============================================= -->
-  <div class="category" data-category="premium">
-    <div class="category-title">Premium & Support</div>
-
-    <div class="placeholder">
-      <div class="placeholder-title">☕ OinkOink Premium <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: what Premium removes (ads), what it costs, and how billing/cancellation works through Google Play.</p>
-    </div>
-
-    <div class="placeholder">
-      <div class="placeholder-title">🔄 Restoring Your Purchase <span class="placeholder-tag">Coming soon</span></div>
-      <p>Planned coverage: when you'd need to restore (new device, reinstall) and how to do it.</p>
+    <div class="subtopic" id="restoring-purchase">
+      <div class="subtopic-title">Restoring Your Purchase</div>
+      <div class="subtopic-path">Settings → Profile → OinkOink Premium → Restore purchase</div>
+      <div class="shot-slot"><span><b>Screenshot slot:</b> Restore purchase flow — add once visual design is finalized</span></div>
+      <div class="placeholder">
+        <span class="placeholder-tag">Coming soon</span>
+        <div class="placeholder-planned">Planned coverage</div>
+        <p>When you'd need to restore (new device, reinstall) and how to do it.</p>
+        <textarea class="draft" placeholder="Draft your content here…"></textarea>
+      </div>
     </div>
   </div>
 
@@ -373,11 +710,11 @@ Please output the result as a downloadable CSV file with a header row matching t
 </div>
 
 <script>
-// Live search: filters h2 sections + placeholder cards by text match.
-// Hides a whole category block if none of its children match.
+// Live search: filters across the whole page by text match, hiding non-matching subtopics.
 const searchInput = document.getElementById('helpSearch');
-const categories = document.querySelectorAll('.category');
-const topicPills = document.getElementById('topicPills');
+const subtopics = document.querySelectorAll('.subtopic');
+const tabSections = document.querySelectorAll('.tab-section');
+const flowRail = document.getElementById('flowRail');
 const noResults = document.getElementById('noResults');
 
 searchInput.addEventListener('input', () => {
@@ -385,21 +722,24 @@ searchInput.addEventListener('input', () => {
   let anyVisible = false;
 
   if (q === '') {
-    categories.forEach(cat => cat.style.display = '');
-    topicPills.style.display = '';
+    subtopics.forEach(s => s.style.display = '');
+    tabSections.forEach(t => t.style.display = '');
+    flowRail.style.display = '';
     noResults.style.display = 'none';
     return;
   }
 
-  topicPills.style.display = 'none';
+  flowRail.style.display = 'none';
 
-  categories.forEach(cat => {
-    // Each "unit" inside a category = a real topic (h2 + its content until next h2/placeholder)
-    // Simplified approach: check the category's full text content for a match.
-    const text = cat.textContent.toLowerCase();
-    const matches = text.includes(q);
-    cat.style.display = matches ? '' : 'none';
-    if (matches) anyVisible = true;
+  tabSections.forEach(section => {
+    let sectionHasMatch = false;
+    section.querySelectorAll('.subtopic').forEach(sub => {
+      const matches = sub.textContent.toLowerCase().includes(q);
+      sub.style.display = matches ? '' : 'none';
+      if (matches) sectionHasMatch = true;
+    });
+    section.style.display = sectionHasMatch ? '' : 'none';
+    if (sectionHasMatch) anyVisible = true;
   });
 
   noResults.style.display = anyVisible ? 'none' : 'block';
