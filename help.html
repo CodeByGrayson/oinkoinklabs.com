@@ -592,7 +592,10 @@
     <div class="subtopic" id="recurring">
       <div class="subtopic-title">Recurring Transactions <span class="done-tag">Written</span></div>
       <div class="subtopic-path">Settings → Recurring</div>
-      <div class="shot-slot"><span><b>Screenshot slot:</b> Recurring screen (Active/Stopped view) — add once visual design is finalized</span></div>
+      <div style="display:flex;gap:12px;margin-bottom:16px;">
+        <img src="assets/settings-recurring.jpg" alt="Recurring screen, Active/Stopped list" style="width:50%;border-radius:12px;border:1px solid var(--navy-line);">
+        <img src="assets/settings-repeat.jpg" alt="Repeat picker screen — Daily, Custom Days, Specific Day" style="width:50%;border-radius:12px;border:1px solid var(--navy-line);">
+      </div>
 
       <p>Some transactions happen like clockwork — your salary, rent, a subscription, your daily commute. Instead of entering them by hand every time, set them up once as <strong>Recurring</strong>, and Money Manager keeps track of the schedule for you.</p>
 
@@ -623,6 +626,7 @@
         <li>Don't delete a recurring entry just because you're pausing it — Turn Off Recurring keeps the setup ready for when it starts again</li>
       </ul>
       <p style="margin-top:16px;color:#7d92b4;font-size:.88rem;">⚠️ Note: editing an entry's <em>category</em> currently updates only that one occurrence, not the recurring template itself — a fix is under consideration. Amount/item edits are intentionally occurrence-only by design.</p>
+      <p style="margin-top:8px;color:#7d92b4;font-size:.88rem;">⚠️ Note: the time you set when first creating a recurring entry (e.g. 8:00 AM) is locked in permanently — every future auto-generated entry in that series will always use that same time, with no way to edit it afterward. To change it, you'd need to stop the series and create a new one. (Also worth knowing: this time is cosmetic only — it doesn't control *when* entries are generated, since the app checks for due entries by date whenever it's opened, not on a fixed clock schedule.)</p>
     </div>
 
     <div class="subtopic" id="backup">
