@@ -399,6 +399,32 @@
       <p>For example, you could set a $50 monthly budget on <strong>Mobile</strong> and a separate $30 budget on <strong>Internet</strong>. Each budget is tracked independently, even though both categories sit under the same "Bills" Group.</p>
       <p>As you log expenses under a budgeted category, the app automatically compares your actual spending against the limit you set — so you can see at a glance whether you're on track or over budget for that category.</p>
       <p><strong>Why by Category and not by Group?</strong> Budgets work best when they're specific. A Group like "Bills" can cover very different expenses with very different limits — setting one budget per Category (Mobile, Internet, Utility, etc.) gives you a much clearer picture of exactly where you're overspending, rather than one blurry number for the whole Group.</p>
+
+      <img src="assets/budget-overview.jpg" alt="Budget screen header and category gauges" style="width:100%;border-radius:12px;border:1px solid var(--navy-line);margin-bottom:16px;">
+
+      <h2 style="margin-top:24px;">Reading the header</h2>
+      <p>At the top of the Budget screen, a personalized card shows your progress at a glance:</p>
+      <ul>
+        <li><strong>The large figure</strong> ("$X left" or "$X over") reflects only your <strong>budgeted</strong> categories — spending vs. the limits you've actually set. If you're under, it shows in purple as "left"; if you've exceeded your budgeted total, it switches to red and reads "over."</li>
+        <li><strong>The line below it</strong> ("$X used of $X budgeted") is the same budgeted-only figures spelled out in full.</li>
+        <li><strong>"Total spending (all categories)"</strong> sits below a thin divider — this includes every expense, budgeted or not. If this number is noticeably higher than the figure above it, that gap is exactly the amount you're spending in categories you haven't set a budget for yet — a useful signal for whether it's worth budgeting them too.</li>
+      </ul>
+
+      <h2 style="margin-top:24px;">Reading the category gauges</h2>
+      <p>Each budgeted category shows a small circular gauge instead of a bar, colored by how close you are to that category's limit:</p>
+
+      <div class="example">
+        <div class="example-group">Gauge Color <span style="color:#7d92b4;font-weight:500;font-size:.82rem;">(% of limit used)</span></div>
+        <div class="example-categories">
+          <div class="example-cat" style="color:#4CAF7D;">🟢 Green — 0% to 69% used</div>
+          <div class="example-cat" style="color:#E0A83E;">🟡 Amber — 70% to 99% used</div>
+          <div class="example-cat" style="color:#F0705F;">🔴 Red — 100% and above (over budget)</div>
+        </div>
+      </div>
+
+      <p>The "spent" figure on each row (the number before the "/") is tinted to match its gauge color too, so the whole row tells a consistent story at a glance — the limit amount after the "/" stays neutral, since that's just your reference number, not a result.</p>
+
+      <p><strong>Categories with no budget set</strong> appear further down the screen under "Other spending · no budget set" — you can see what you spent, but there's no limit or gauge, since you haven't chosen to track that one yet.</p>
     </div>
   </div>
 
@@ -554,7 +580,7 @@
     <div class="subtopic" id="settings-budget">
       <div class="subtopic-title">Budget (Settings tile)</div>
       <div class="subtopic-path">Settings → Budget</div>
-      <div class="shot-slot"><span><b>Screenshot slot:</b> Settings → Budget tile/screen — add once visual design is finalized</span></div>
+      <img src="assets/setting-budget.jpg" alt="Settings, Budget allocation screen" style="width:100%;border-radius:12px;border:1px solid var(--navy-line);margin-bottom:16px;">
       <div class="placeholder">
         <span class="placeholder-tag">Coming soon</span>
         <div class="placeholder-planned">Planned coverage</div>
